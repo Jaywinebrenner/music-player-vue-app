@@ -1,18 +1,32 @@
 <template>
+  <div>
+  <div class="navbar">
+    <button @click="show" class="albumsButton">ALBUMS</button>
+  </div>
 
-<div class="navbar">
-  <button class="albumsButton">ALBUMS</button>
-
-</div>
-
+    <modal name="modal">
+      <div class="modalWrapper">
+        <h1 class="modalHeader">Available Music</h1>
+      </div>
+    </modal>
+  </div>
 
 </template>
 
 <script>
 
 export default {
+
+  props: ['show', 'hide', 'DB'],
   name: 'Navbar',
+
+  data: function () {
+    console.log("DB on NAV", this.DB);
+    return {}
+  }
+
 }
+
 
 </script>
 
@@ -39,6 +53,15 @@ export default {
 
 .albumsButton:hover {
   background-color: #f5ebeb;
+}
+
+.modalWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.modalHeader {
+  font-size: 30px;
 }
 
 

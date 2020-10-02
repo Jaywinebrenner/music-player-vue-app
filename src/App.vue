@@ -1,6 +1,9 @@
 <template>
 <div> 
-  <Navbar/>
+  <Navbar v-bind:show='show' 
+  v-bind:hide='hide'
+  v-bind:DB='DB'
+  />
   <div id="app">
     <header>  
       <h1 class="artist">{{ current.artist }}</h1>
@@ -44,8 +47,10 @@ export default {
     Navbar
   },
   data: function() {
-    console.log(DB);
+
+    console.log("DB IN APP", DB);
     return {
+      DB: DB,
       current: {},
       index: 0,
       isPlaying: false,
@@ -82,14 +87,26 @@ export default {
       this.current = this.songs[this.index];
       this.play(this.current);
     },
-        previous () {
+    previous () {
       this.index--;
       if (this.index < 0) {
         this.index = this.songs.length -1;
       }
       this.current = this.songs[this.index];
       this.play(this.current);
-    }
+    },
+
+    // MODAL METHODS
+    show () {
+            this.$modal.show('modal');
+        },
+    hide () {
+            this.$modal.hide('modal');
+        },
+    mount () {
+        this.show()
+    },
+
   },
 
   created () {

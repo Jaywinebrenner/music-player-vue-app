@@ -12,6 +12,10 @@ import {  } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
+import vmodal from "vue-js-modal";
+
+
+Vue.use(vmodal);
 
 Vue.use(Buefy);
 
